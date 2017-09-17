@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-  
+
   <md-button class="md-raised md-primary" @click="getData()">Load Data Here</md-button>
 
   <div class="container-fluid">
@@ -99,7 +99,7 @@ export default {
   methods: {
     getData () {
       this.status = true
-      axios.get(this.baseUrl.url + '/info/personal/').then((response) => {
+      axios.get('http://localhost:8000/info/personal/').then((response) => {
         this.items = response.data.results
         console.log(response.data.results)
         this.status = false
