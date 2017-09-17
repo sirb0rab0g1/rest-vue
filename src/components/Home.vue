@@ -1,5 +1,7 @@
 <template lang="html">
-
+  <div class="home">
+    {{ msg }}
+  </div>
 </template>
 
 <script lang="js">

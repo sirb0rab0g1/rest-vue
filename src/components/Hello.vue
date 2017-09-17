@@ -18,9 +18,7 @@
     </md-toolbar>
   </md-sidenav>
   
-
   <md-button class="md-raised md-primary" @click="getData()">Load Data Here</md-button>
-
 
   <div class="container-fluid">
       <div class="row">
@@ -100,10 +98,8 @@
 </template>
 
 <script>
-// import { Http } from '@/http'
-// import Vue from 'vue'
 import axios from 'axios'
-// import VueAxios from 'vue-axios'
+import url from '../http/index'
 
 export default {
   name: 'hello',
@@ -114,7 +110,8 @@ export default {
       link: 'http://vuematerial.io/#/',
       items: this.items,
       status: false,
-      msg: ''
+      msg: '',
+      baseUrl: url[0]
     }
   },
   methods: {
@@ -132,7 +129,7 @@ export default {
     },
     getData () {
       this.status = true
-      axios.get('http://127.0.0.1:8000/info/personal/').then((response) => {
+      axios.get(this.baseUrl.url + '/info/personal/').then((response) => {
         this.items = response.data.results
         console.log(response.data.results)
         this.status = false
@@ -144,12 +141,11 @@ export default {
       this.status = true
       var pk = id
       var body = {first_name: firstName, middle_name: middleName, last_name: lastName, location: location, email: email, age: age}
-      axios.put('http://127.0.0.1:8000/info/personal/' + pk + '/', body, {headers: { 'Content-Type': 'application/json' }})
+      axios.put(this.baseUrl.url + '/info/personal/' + pk + '/', body, {headers: { 'Content-Type': 'application/json' }})
       .then(response => {
         this.status = false
         this.msg = 'Successfully update data'
         this.$refs.snackbar.open()
-        console.log(response)
       })
       .catch(error => {
         console.log(error)
@@ -157,7 +153,7 @@ export default {
     },
     removeData (id) {
       var pk = id
-      axios.delete('http://127.0.0.1:8000/info/personal/' + pk + '/', {headers: { 'Content-Type': 'application/json' }})
+      axios.delete(this.baseUrl.url + '/info/personal/' + pk + '/', {headers: { 'Content-Type': 'application/json' }})
       .then(response => {
         this.status = false
         this.msg = 'Successfully delete data'
@@ -171,12 +167,11 @@ export default {
     postData (firstName, middleName, lastName, location, email, age) {
       this.status = true
       var body = {first_name: 'firstName', middle_name: 'middleName', last_name: 'lastName', location: 'location', email: 'email@pota.com', age: '90'}
-      axios.post('http://127.0.0.1:8000/info/personal/', body, {headers: { 'Content-Type': 'application/json' }})
+      axios.post(this.baseUrl.url + '/info/personal/', body, {headers: { 'Content-Type': 'application/json' }})
       .then(response => {
         this.status = false
         this.msg = 'Data saved'
         this.$refs.snackbar.open()
-        console.log(response)
       })
       .catch(error => {
         console.log(error)

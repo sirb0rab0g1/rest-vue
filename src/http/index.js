@@ -1,8 +1,3 @@
-import Vue from 'vue'
-
-export const loadData = ({commit}) => {
-  Vue.http.get('/info/personal/')
-    .then(data => {
-      console.log(data)
-    })
-}
+export default [
+  {url: 'http://localhost:8000'}
+]
