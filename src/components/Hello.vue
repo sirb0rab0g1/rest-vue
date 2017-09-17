@@ -1,22 +1,5 @@
 <template>
   <div class="hello">
-  <md-toolbar>
-    <md-button class="md-icon-button" @click="toggleLeftSidenav">
-      <md-icon>menu</md-icon>
-    </md-button>
-
-    <h2 class="md-title"> 
-    <a v-bind:href="link"> {{title}}</a>
-    </h2>
-  </md-toolbar>
-
-  <md-sidenav class="md-left" ref="leftSidenav" @open="open('Left')" @close="close('Left')">
-    <md-toolbar class="md-large">
-      <div class="md-toolbar-container">
-        <h3 class="md-title">Sidenav content</h3>
-      </div>
-    </md-toolbar>
-  </md-sidenav>
   
   <md-button class="md-raised md-primary" @click="getData()">Load Data Here</md-button>
 
@@ -106,7 +89,6 @@ export default {
   items: [],
   data () {
     return {
-      title: 'VueMaterial',
       link: 'http://vuematerial.io/#/',
       items: this.items,
       status: false,
@@ -115,18 +97,6 @@ export default {
     }
   },
   methods: {
-    hello () {
-      return this.title
-    },
-    toggleLeftSidenav () {
-      this.$refs.leftSidenav.toggle()
-    },
-    open (event) {
-
-    },
-    close (event) {
-
-    },
     getData () {
       this.status = true
       axios.get(this.baseUrl.url + '/info/personal/').then((response) => {
