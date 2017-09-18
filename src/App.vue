@@ -41,7 +41,8 @@ export default {
   name: 'app',
   data () {
     return {
-      title: 'VueMaterial'
+      title: 'VueMaterial',
+      link: 'http://vuematerial.io/#/'
     }
   },
   methods: {

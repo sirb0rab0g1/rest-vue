@@ -89,7 +89,6 @@ export default {
   items: [],
   data () {
     return {
-      link: 'http://vuematerial.io/#/',
       items: this.items,
       status: false,
       msg: '',
