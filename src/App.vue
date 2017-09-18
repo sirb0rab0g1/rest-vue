@@ -27,11 +27,14 @@
         </md-toolbar>
 
         <div style="width:100%">
-          <md-button class="md-raised" style="width:95%;height:50px;">Edit Data</md-button>
-          <md-button class="md-raised" style="width:95%;height:50px;">Register Data</md-button>
+          <router-link to='/' >
+            <md-button class="md-raised" style="width:95%;height:50px;">Edit Data</md-button>
+          </router-link>
+          <router-link to='/Home'>
+            <md-button class="md-raised" style="width:95%;height:50px;">Register Data</md-button>
+          </router-link>
         </div>
     </md-sidenav>
-
     <router-view></router-view>
   </div>
 </template>
