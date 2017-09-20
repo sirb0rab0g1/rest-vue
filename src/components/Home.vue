@@ -126,20 +126,7 @@
             this.$refs.snackbar.open()
           }
         })
-      },
-      showSuccess (img) {
-        console.log(img)
-      },
-      generateImage () {
-        let url = this.myCroppa.generateDataUrl()
-        if (!url) {
-          alert('no image')
-          return
-        } else {
-          console.log(url)
-        }
       }
-
     },
     computed: {
 
