@@ -67,3 +67,4 @@ export default {
 
 <style src="vue-material/dist/vue-material.css"></style>
 <style src="bootstrap/dist/css/bootstrap.min.css"></style>
+<style src="vue-croppa/dist/vue-croppa.css"></style>

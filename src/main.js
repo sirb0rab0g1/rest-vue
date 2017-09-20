@@ -7,6 +7,7 @@ import VueMaterial from 'vue-material'
 import VueResource from 'vue-resource'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+// import Dropzone from 'vue2-dropzone'
 
 Vue.use(VueMaterial, VueAxios, axios)
 Vue.use(VueResource)
@@ -19,5 +20,5 @@ new Vue({
   el: '#app',
   router,
   template: '<App/>',
-  components: { App }
+  components: {App}
 })
